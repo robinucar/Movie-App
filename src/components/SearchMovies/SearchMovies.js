@@ -37,25 +37,29 @@ const SearchMovies = () => {
           Search
         </button>
       </form>
-      <div>
+      <div className={classes.cardList}>
         {movies
           .filter((movie) => movie.poster_path)
           .map((movie) => (
-            <div className="card" key={movie.id}>
+            <div className={classes.card} key={movie.id}>
               <img
-                className="card-image"
+                className={classes.cardImage}
                 src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}`}
                 alt={movie.title + "poster"}
               />
-              <div className="card-content">
-                <h3 className="card-title">{movie.title}</h3>
+              <div className={classes.cardContent}>
+                <h3 className={classes.cardTitle}>{movie.title}</h3>
                 <p>
-                  <small>RELEASE DATE: {movie.release_date}</small>
+                  <small>
+                    <strong>RELEASE DATE:</strong> {movie.release_date}
+                  </small>
                 </p>
                 <p>
-                  <small>RATING: {movie.vote_average}</small>
+                  <small>
+                    <strong>RATING:</strong> {movie.vote_average}
+                  </small>
                 </p>
-                <p className="card-desc">{movie.overview}</p>
+                <p className={classes.cardDesc}>{movie.overview}</p>
               </div>
             </div>
           ))}
