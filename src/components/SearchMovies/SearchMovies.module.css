@@ -16,6 +16,8 @@
     line-height: 2.8rem;
     border-radius: 20px;
     border: 1px solid #ddd;
+    outline: none;
+    
 }
 
 .button {
@@ -27,6 +29,7 @@
     font-size: 1.4rem;
     cursor: pointer;
     transition: background-color 250ms;
+    outline: none;
 }
 
 .button:hover {
