@@ -23,9 +23,6 @@ const SearchMovies = () => {
   return (
     <div>
       <form className={classes.form} onSubmit={searchMovies}>
-        <label htmlFor="query" className={classes.label}>
-          Movie Name
-        </label>
         <input
           className={classes.input}
           type="text"
