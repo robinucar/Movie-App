@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import classes from "../SearchMovies/SearchMovies.module.css";
+import MovieCard from "../MovieCard/MovieCard";
 const SearchMovies = () => {
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
@@ -12,7 +13,7 @@ const SearchMovies = () => {
     try {
       const res = await fetch(url);
       const data = await res.json();
-      console.log(data.results);
+
       setMovies(data.results);
     } catch (err) {
       console.log(err);
@@ -41,27 +42,7 @@ const SearchMovies = () => {
         {movies
           .filter((movie) => movie.poster_path)
           .map((movie) => (
-            <div className={classes.card} key={movie.id}>
-              <img
-                className={classes.cardImage}
-                src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}`}
-                alt={movie.title + "poster"}
-              />
-              <div className={classes.cardContent}>
-                <h3 className={classes.cardTitle}>{movie.title}</h3>
-                <p>
-                  <small>
-                    <strong>RELEASE DATE:</strong> {movie.release_date}
-                  </small>
-                </p>
-                <p>
-                  <small>
-                    <strong>RATING:</strong> {movie.vote_average}
-                  </small>
-                </p>
-                <p className={classes.cardDesc}>{movie.overview}</p>
-              </div>
-            </div>
+            <MovieCard movie={movie} key={movie.id} />
           ))}
       </div>
     </div>
