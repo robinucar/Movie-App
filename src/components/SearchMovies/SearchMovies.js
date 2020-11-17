@@ -1,19 +1,19 @@
 import React from "react";
-
+import classes from '../SearchMovies/SearchMovies.module.css';
 const SearchMovies = () => {
   return (
     <div>
-      <form className="form">
-        <label htmlFor="query" className="label">
+      <form className={classes.form}>
+        <label htmlFor="query" className={classes.label}>
           Movie Name
         </label>
         <input
           type="text"
           name="query"
           placeholder="i.e. Jurassic Park"
-          className="input"
+          className={classes.input}
         />
-        <button type="submit" className="button">
+        <button type="submit" className={classes.button}>
           Search
         </button>
       </form>
